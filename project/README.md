@@ -1,12 +1,10 @@
 
-# California Upwelling
-
-This modeling project is an example to demonstrate the approximate scope, files, and organization of a class project for MS 274.
+# Modeling internal tides in Monterey Submarine Canyon
 
 ## Project Description
-In this project, I will investigate the effects of coastal wind on upwelling in California. In particular, I will investigate the following science question:
+I investigate internal tidal wave dynamics in a high-resolution regional model of Monterey Bay. My science question is
 
-*How do winds affect ocean temperature in the California Current?*
+*Compared with observational data and previous modeling efforts, how well does a regional model configuration of MITgcm represent internal tidal wave characteristics in Monterey Bay?*
 
 To investigate this question, I will construct a model spanning the coast of California and run my model simulation for one year in two experiments: a run with wind and a run without wind. I will run my experiment during the year 2008 which is a year of strong upwelling as shown in the [BEUTI Index](https://ecowatch.noaa.gov/thematic/upwelling). I anticipate that the model with wind will have colder surface ocean temperatures than the model without wind because the ocean will be more stratified without the wind forcing.
 
@@ -14,8 +12,6 @@ For initial conditions, I will use the state of the ECCO Version 5 Model in Janu
 
 
 ## Reproducing Model Results
-
-*Note for MS274: The following section outlines possible steps that may be included in your README for reproducibility. When designing your own steps, be sure to consider which of the steps below pertain to your model and update/modify accordingly.*
 
 The following steps outline how to construct the model files, configure and run the model, and assess the model results.
 
@@ -31,7 +27,7 @@ The model files should be placed into the  `input` directory.
 ### Step 2: Add files to the computing cluster
 Once the input files have been created, the model files can be transferred to the computing cluster. Begin by cloning a copy of [MITgcm](https://github.com/MITgcm/MITgcm) into your scratch directory and make a folder for the configuration, .e.g.
 ```
-mkdir MITgcm/configurations/ca_upwelling
+mkdir MITgcm/configurations/MryRegional
 ```
 Then, use the `scp` command to send the `code`, `input`, and `namelist` directories to your configuration directory. 
 
@@ -60,4 +56,4 @@ There are two notebooks provided for analysis:
    
 2. Answering the Science Question
    
-   This notebooks provided some analysis plot to address the science question posed above.
+   This notebook addresses the science question posed above.
