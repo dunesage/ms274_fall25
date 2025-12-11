@@ -4,12 +4,15 @@
 ## Project Description
 I investigate internal tidal wave dynamics in a high-resolution regional model of Monterey Bay. My science question is
 
-*Compared with observational data and previous modeling efforts, how well does a regional model configuration of MITgcm represent internal tidal wave characteristics in Monterey Bay?*
+*"How well does a regional model configuration of MITgcm forced by ECCO's LLC4320, the highest-resolution global state estimate, represent internal tidal wave   characteristics in Monterey Bay?"*
 
-To investigate this question, I will construct a model spanning the coast of California and run my model simulation for one year in two experiments: a run with wind and a run without wind. I will run my experiment during the year 2008 which is a year of strong upwelling as shown in the [BEUTI Index](https://ecowatch.noaa.gov/thematic/upwelling). I anticipate that the model with wind will have colder surface ocean temperatures than the model without wind because the ocean will be more stratified without the wind forcing.
+To investigate this question, I construct a model spanning Monterey Bay and its environs. In this repository, I will analyze output from my first successful model run, which ran for 10 hours on the Spartan HPC cluster, equivalent to over 3 days in model time. This run used a timestep of 5 seconds, and includes hourly output of 3D temperature and velocity fields. This hourly temporal frequency should be sufficient to resolve internal tidal waves occuring at the M2 frequency (~12.42 hours). Note that the  namelist files 'data' and 'data.diagnostics' in this repositiory are modified from the initial run that I analyze, as I am currently running a model with a larger timestep (25 seconds), and more frequent diagnostic output (half-hourly).
 
-For initial conditions, I will use the state of the ECCO Version 5 Model in January of 2008. Similarly, I will construct boundary and external forcing conditions for this model from the ECCO Version 5 model output. To analyze the results, I will create a timeseries of temperature in the Monterey Bay area in the two models and investigate differences through time. For visualization, I will create a movie of temperature differences between the model with wind and the model without wind. 
+To initialize the model, I downscale initial and boundary conditions from ECCO's LLC4320 (1/48 degree) simulations. I use fields from the first available timestep on the CalCoast folder in the ECCO database (https://data.nas.nasa.gov/ecco). This is September 13, 2011, at 2AM Pacific Time. For my model, I use 360 rows, 240 columns, and 88 vertical levels. This is equivalent to roughly a 350 meter horizontal resolution, on average. Note that in order to force realistic internal waves in the model and investigate their properties more reliably, one would need to force the model boundaries with time-varying output from LLC4320, or include a model for barotropic tidal currents at the boundary. 
 
+I will conduct a preliminary investigation of temperature cross-sections, vertical velocities, and kinetic energy that may indicate internal wave activity. Also, my analysis should be viewed with the caveat that the model is likely still spinning up. I use external forcing (atmospheric) conditions during February 2011 from ECCO's V4r4 global state estimate (https://ecco-group.org/products-ECCO-V4r4.htm).
+
+To analyze diagnostic output from the model, I will create a timeseries of total kinetic energy to demonstrate the model spin-up, as well as a movie of temperature from offshore to the head of the Monterey Submarine Canyon. I will also investigate vertical velocities.
 
 ## Reproducing Model Results
 
@@ -39,21 +42,12 @@ make depend
 make
 ```
 
-### Step 4.1: Run the model with wind
-After the compilation is complete, run the model with the wind. Move to the run directory, link everything from `input` and `code`, and the submit the job script:
+### Step 4: Run the model
+After the compilation is complete, run the model. Move to the run directory, link everything from `input` and `code`, and the submit the job script:
 ```
-sbatch mwood.slm
+sbatch ms27401.slm
 ```
-
-### Step 4.2: Run the model without wind
-Next, run the model without wind to complete the experiment. Again, link everything from `input` and `code` to a directory called `run_no_wind`. Then, edit the `data.exf` file to point to the modified wind files (see the Creating the External Forcing Conditions.ipynb notebook for details). Then, submit the job script again to rerun the model.
 
 ### Step 5: Analyze the Results
-There are two notebooks provided for analysis:
-1. Analyzing Model Results
+The analysis notebook creates the temperature cross-section movie and the time series of kinetic energy found in the figures directory.
 
-   This notebook is provided to have a quick look at spatial and temporal variations in the temperature field in the model with wind. It also generates the visualization provided in the figures directory.
-   
-2. Answering the Science Question
-   
-   This notebook addresses the science question posed above.
