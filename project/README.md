@@ -4,7 +4,7 @@
 ## Project Description
 I investigate internal wave dynamics in a high-resolution regional model of Monterey Bay. My science question is
 
-*"How well does a regional model configuration of MITgcm forced by ECCO's LLC4320, the highest-resolution global state estimate, represent internal wave   characteristics in Monterey Bay?"*
+*"How well does a regional model configuration of MITgcm forced by ECCO's LLC4320, the highest-resolution global state estimate, represent internal wave characteristics in Monterey Bay?"*
 
 To investigate this question, I construct a model spanning Monterey Bay and its environs. In this repository, I will analyze output from my first successful model run, which ran for 10 hours on the Spartan HPC cluster, equivalent to over a day and a half in model time. This run used a relatively conservative timestep of 5 seconds, and includes hourly output of 3D temperature and velocity fields. This hourly temporal frequency should be sufficient to resolve internal tidal waves occuring at the M2 frequency (~12.42 hours), as well as near-inertial waves just under the Coriolis frequency. Note that the  namelist files 'data' and 'data.diagnostics' in this repositiory are modified from the initial run that I analyze, as I am currently running a model with a larger timestep (25 seconds), and more frequent diagnostic output (half-hourly).
 
