@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH --partition=nodes
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --time=12:00:00
+export MPI_HOME=/scratch/home/ms27401/.conda/envs/ms274
+source /opt/Miniconda3/Miniconda3-py312_24.9.2-0-science/etc/profile.d/conda.sh
+conda activate ms274
+mpirun -np 8 ./mitgcmuv
