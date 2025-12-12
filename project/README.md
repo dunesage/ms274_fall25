@@ -1,5 +1,5 @@
 
-# Modeling internal tides in Monterey Submarine Canyon
+# Modeling internal waves in Monterey Submarine Canyon
 
 ## Project Description
 I investigate internal wave dynamics in a high-resolution regional model of Monterey Bay. My science question is
