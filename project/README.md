@@ -19,7 +19,7 @@ To analyze diagnostic output from the model, I create a timeseries of total kine
 The following steps outline how to construct the model files, configure and run the model, and assess the model results.
 
 ### Step 1: Create the Model Files
-Several input files need to be created to run the model. Generate the following list of files using the notebooks indicated in paratheses:
+Several input files need to be created to run the model. Generate the following list of files using the notebooks indicated in parentheses:
 - Model Grid (notebooks/ModelGrid.ipynb)
 - Bathymetry (notebooks/Bathymetry.ipynb)
 - Initial Conditions and Boundary Conditions (notebooks/InitialConditions.ipynb)
