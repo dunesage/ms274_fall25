@@ -1,0 +1,12 @@
+&DIAGNOSTICS_LIST
+    dumpAtLast = .TRUE.,
+    fields(1,1) = 'THETA   ',
+    fields(1,2) = 'WVEL    ',
+    fileName(1) = 'diags/theta_30min/theta_30min',
+    fileName(2) = 'diags/wvel_30min/wvel_30min',
+    frequency(1) = -1800.,
+    frequency(2) = -1800.,
+/
+# Parameters for diagnostics of per-level statistics
+&DIAG_STATIS_PARMS
+/
